@@ -33,5 +33,18 @@ describe(Phone) do
       expect(test_phone.description()).to(eq("home"))
     end
   end
+  describe(".all") do
+    it("returns all phone info that has been saved") do
+      test_phone = Phone.new({:area_code => 312, :phone_number => 555-1234, :description => "home"})
+      test_phone.save()
+      expect(Phone.all()).to(eq([test_phone]))
+    end
+  end
+  describe(".clear") do
+    it("clears all phone info in array") do
+      expect(Phone.clear()).to(eq([]))
+    end
+  end
+
 
 end
