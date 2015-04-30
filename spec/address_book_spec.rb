@@ -35,6 +35,14 @@ describe(Contact) do
     end
   end
 
+  describe("#birth_year") do
+    it("returns birth year of contact") do
+      test_contact = Contact.new({:first_name => "John", :last_name => "Smith", :birth_year => 1982})
+      test_contact.save()
+      expect(test_contact.birth_year()).to(eq(1982))
+    end
+  end
+
 
 
 
