@@ -43,6 +43,14 @@ describe(Contact) do
     end
   end
 
+  describe(".all") do
+    it("returns all saved contacts") do
+      test_contact = Contact.new({:first_name => "John", :last_name => "Smith", :birth_year => 1982})
+      test_contact.save()
+      expect(Contact.all()).to(eq([test_contact]))
+    end
+  end
+
 
 
 
