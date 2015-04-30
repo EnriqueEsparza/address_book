@@ -20,11 +20,23 @@ describe(Contact) do
       expect(Contact.all()).to(eq([test_contact]))
     end
   end
+
   describe(".clear") do
     it("clears contact info array") do
-    expect(Contact.clear()).to(eq([]))
+      expect(Contact.clear()).to(eq([]))
+    end
   end
-end
+
+  describe("#last_name") do
+    it("returns last name of contact") do
+    test_contact = Contact.new({:first_name => "John", :last_name => "Smith", :birth_year => 1982})
+    test_contact.save()
+      expect(test_contact.last_name()).to(eq("Smith"))
+    end
+  end
+
+
+
 
 
 
