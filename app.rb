@@ -23,11 +23,12 @@ post('/contacts') do
   last_name = params.fetch("last_name")
   birth_year = params.fetch("birth_year")
   contact = Contact.new({:first_name => first_name, :last_name => last_name, :birth_year => birth_year})
+  @user_id = contact.user_id()
   contact.save()
   erb(:success)
 end
 
-get('/contacts/:user_id') do
-  @contact = Contact.find(params.fetch("user_id").to_i())
+get('/contacts/@user_id') do
+  @contact = Contact.find(@user_id)
   erb(:contact)
 end
